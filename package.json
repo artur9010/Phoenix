@@ -1,0 +1,25 @@
+{
+  "name": "electron-colorchanger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artur9010/electron-colorchanger.git"
+  },
+  "author": "artur9010",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/artur9010/electron-colorchanger/issues"
+  },
+  "homepage": "https://github.com/artur9010/electron-colorchanger#readme",
+  "dependencies": {
+    "electron-prebuilt": "^1.2.7",
+    "facebook-chat-api": "^1.1.0",
+    "jquery": "^3.1.0",
+    "simple-color-picker": "^0.1.0"
+  }
+}

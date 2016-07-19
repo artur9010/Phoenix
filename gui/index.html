@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photon</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/photon.min.css">
+    <script>
+        require("simple-color-picker/simple-color-picker.css")
+    </script>
+
+    <!-- Javascript -->
+    <script src="js/colorchanger.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="window">
+    <!-- Your app's content goes inside .window-content -->
+    <div class="window-content">
+        <div class="pane-group">
+            <div class="pane pane-sm sidebar">
+                <ul class="list-group">
+                    <li class="list-group-header">
+                        <input class="form-control" type="text" placeholder="Search for someone">
+                    </li>
+                    <li class="list-group-item">
+                        <img class="img-circle media-object pull-left" src="/assets/img/avatar.jpg" width="32"
+                             height="32">
+                        <div class="media-body">
+                            <strong>List item title</strong>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <img class="img-circle media-object pull-left" src="/assets/img/avatar2.png" width="32"
+                             height="32">
+                        <div class="media-body">
+                            <strong>List item title</strong>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="pane">
+                <div id="colorpicker"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/colorpicker.js"></script>
+</body>
+</html>
