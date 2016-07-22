@@ -10,10 +10,10 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 500, height: 400})
+  mainWindow = new BrowserWindow({width: 470, height: 700})
 
   // and load the index.html of the app.
-  mainWindow.loadURL(`file://${__dirname}/gui/index.html`)
+  mainWindow.loadURL(`file://${__dirname}/gui/login.html`)
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()

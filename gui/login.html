@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Log in to Facebook - Messenger Color Changer</title>
-
+    <title>Log-in to Facebook Messenger</title>
+    <link rel="stylesheet" href="css/photon.min.css">
     <link rel="stylesheet" href="css/login.css">
-
-    <script src="js/login.js"></script>
 </head>
 <body>
-
+<div class="login-screen">
+    <h1>electron-colorchanger</h1>
+    <div id="error" style="display: none;"></div><br/>
+    <form id="login-form">
+        <input type="text" id="username" class="login-input"><br/>
+        <input type="password" id="password" class="login-input"><br/>
+        <input type="submit" id="login-button" class="login-button" value="Continue">
+    </form>
+</div>
+<script src="js/login.js"></script>
 </body>
 </html>
