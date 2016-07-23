@@ -90,8 +90,10 @@ function login_to_messenger() {
         }
 
         waff.qq(".conversation").forEach(function(el){
-            qq('.conversation.active').forEach((e)=>e.classList.remove('active'));
-            this.classList.add('active');
+            this.on("click", function(e){
+                qq('.conversation.active').forEach((e)=>e.classList.remove('active'));
+                this.classList.add('active');
+            })
         })
     })
 }
