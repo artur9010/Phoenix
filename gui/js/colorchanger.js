@@ -69,11 +69,7 @@ function login_to_messenger() {
                     conversationImage = arr[prot]["imageSrc"];
                     conversatonID = arr[prot]["threadID"];
                 }
-                /*let conversationDOM = $("<li>", {class: "list-group-item"});
-                conversationDOM.append($("<img>", {class: "img-circle media-object pull-left", width: 32, height: 32, src: conversationImage}));
-                conversationDOM.append($("<div>", {class: "media-body", html: "<strong>" + conversationName + "</strong>"}));
-                conversationDOM.append("<p>" + conversatonID + "</p>");
-                $("#conversations").append(conversationDOM);*/
+
                 var conversationDOM = waff.e("li.list-group-item.conversation");
                 var conversationDOMimage = waff.e("img.img-circle.media-object.pull-left");
                 conversationDOMimage.attr("width", 32);
@@ -87,8 +83,10 @@ function login_to_messenger() {
             }
         });
 
-        $(".conversation").click(function () {
-
-        });
+        /*waff.qq(".conversation").on("click", function(e){
+            waff.qq(".conversation").removeClass("active");
+            waff.q(this).addClass("active");
+            //todo: do something
+        })*/
     })
 }

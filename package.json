@@ -19,7 +19,6 @@
   "dependencies": {
     "electron-prebuilt": "^1.2.7",
     "facebook-chat-api": "^1.1.0",
-    "jquery": "^3.1.0",
     "simple-color-picker": "^0.1.0",
     "waff-query": "^0.5.3"
   }

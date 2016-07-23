@@ -6,21 +6,6 @@
     height: 100vh;
 }
 
-.login-input{
-    width: 250px;
-}
-
-.login-button{
-    width: 250px;
-    background-color: rgb(250, 60, 76);
-    padding: 5px;
-    text-align: center;
-    height: 45px;
-    line-height: 1.8;
-    box-shadow: none;
-    outline: none;
-    border: none;
-    border-radius: 25px;
-    color: white;
-    font-size: 16px;
+.grey-text{
+    color: lightgrey;
 }
