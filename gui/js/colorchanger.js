@@ -89,10 +89,9 @@ function login_to_messenger() {
             waff.q("#conversations").append(conversationDOM);
         }
 
-        /*waff.qq(".conversation").on("click", function(e){
-            waff.qq(".conversation").removeClass("active");
-            waff.q(this).addClass("active");
-            //todo: do something
-        })*/
+        waff.qq(".conversation").forEach(function(el){
+            qq('.conversation.active').forEach((e)=>e.classList.remove('active'));
+            this.classList.add('active');
+        })
     })
 }
