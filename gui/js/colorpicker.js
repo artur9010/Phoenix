@@ -21,7 +21,8 @@ function rgb2hex(orig) {
 
 waff.qq(".color-block").forEach(function (el) {
     waff.q(el).on("click", function(e){
-        alert("test");
-        colorpicker.setColor(waff.q(this).css("background-color"));
+        console.log(this.css("background-color"));
+        console.log(this);
+        colorpicker.setColor(this.css("background-color"));
     });
 })
