@@ -86,14 +86,11 @@ function login_to_messenger() {
             conversationDOMname.html("<strong>" + name + "</strong>");
             conversationDOM.append(conversationDOMimage);
             conversationDOM.append(conversationDOMname);
-            waff.q("#conversations").append(conversationDOM);
-        }
-
-        waff.qq(".conversation").forEach(function(el){
-            el.on("click", function(e){
-                qq('.conversation.active').forEach((e)=>e.classList.remove('active'));
+            conversationDOM.on("click", function(e){
+                waff.qq('.conversation.active').forEach((e)=>e.classList.remove('active'));
                 this.classList.add('active');
             })
-        })
+            waff.q("#conversations").append(conversationDOM);
+        }
     })
 }
