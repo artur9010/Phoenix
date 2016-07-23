@@ -121,7 +121,8 @@ function login_to_messenger() {
 
         function changeColor(){
             var id = waff.q(".conversation.active").id;
-            api.changeThreadColor(colorpicker.getColor(), id, function callback(err){
+            //colorpicker.getColor()
+            api.changeThreadColor(colorpicker.getHexString().toString(), id.toString(), function callback(err){
                 if(err) return console.error(err);
             });
         }

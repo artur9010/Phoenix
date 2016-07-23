@@ -21,5 +21,8 @@
     "facebook-chat-api": "^1.1.0",
     "simple-color-picker": "^0.1.0",
     "waff-query": "^0.5.3"
+  },
+  "devDependencies": {
+    "electron-packager": "^7.3.0"
   }
 }
