@@ -90,7 +90,7 @@ function login_to_messenger() {
         }
 
         waff.qq(".conversation").forEach(function(el){
-            this.on("click", function(e){
+            el.on("click", function(e){
                 qq('.conversation.active').forEach((e)=>e.classList.remove('active'));
                 this.classList.add('active');
             })
