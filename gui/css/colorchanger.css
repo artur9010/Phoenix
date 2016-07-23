@@ -4,6 +4,10 @@
     padding-top: 5px;
 }
 
+.list-group-item.active, .list-group-item.selected{
+    background-color: rgb(255, 127, 0);
+}
+
 .color-block{
     width: 40px;
     height: 40px;
@@ -13,6 +17,12 @@
     border-radius: 25px;
     margin-left: 1px;
     margin-right: 1px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
 }
 
 .color-1{

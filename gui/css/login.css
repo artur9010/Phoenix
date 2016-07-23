@@ -6,6 +6,10 @@
     height: 100vh;
 }
 
+h1{
+    color: rgb(255, 127, 0);
+}
+
 .grey-text{
     color: lightgrey;
 }

@@ -11,7 +11,7 @@ var colorpicker = new ColorPicker({
     el: document.getElementById("colorpicker"),
     height: 250,
     width: 249,
-    background: '#F5F5F4'
+    background: '#FFFFFF'
 });
 
 waff.qq(".color-block").forEach(function (el) {
@@ -41,42 +41,20 @@ function login_to_messenger() {
             return console.error(err);
         }
 
-        /*api.getUserInfo([100012621480066], function(err, ret) {
-            if(err) return console.error(err);
-
-            for(var prop in ret) {
-                if(ret.hasOwnProperty(prop)) {
-                    console.log(ret[prop])
-                }
-            }
-        });*/
-
         api.getThreadList(0, 50, function (err, arr) {
-            /*
-            conversations:
-            - image: imageSrc
-            - name: name
-
-            users:
-            - image: thumbSrc
-            - name: name
-             */
             if(err){
                 return console.error(err);
             }
             for(prot in arr){
                 (function(){
-                    //console.log(arr[prot]);
                     var conversationName;
                     var conversationImage;
                     var conversatonID;
                     if(arr[prot]["isCanonicalUser"]){ //is user
-                        //console.log([arr[prot]["participantIDs"][0]].toString());
                         api.getUserInfo([arr[prot]["participantIDs"][0]], function(err, res){
                             if(err) return console.error(err);
                             for(var prop in res) {
                                 conversationName = res[prop].name;
-                                console.log(conversationName);
                                 conversationImage = res[prop].thumbSrc;
                                 conversatonID = prop;
                                 addConversation(conversatonID, conversationName, conversationImage);
@@ -121,7 +99,6 @@ function login_to_messenger() {
 
         function changeColor(){
             var id = waff.q(".conversation.active").id;
-            //colorpicker.getColor()
             api.changeThreadColor(colorpicker.getHexString().toString(), id.toString(), function callback(err){
                 if(err) return console.error(err);
             });
