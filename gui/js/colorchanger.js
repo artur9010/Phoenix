@@ -2,10 +2,12 @@
  * Created by artur9010 on 19.07.2016.
  */
 
+//node.js imports
 const waff = require("waff-query");
 const messenger = require("facebook-chat-api");
 const ColorPicker = require("simple-color-picker");
 
+//Color picker
 var colorpicker = new ColorPicker({
     color: '#FF0000',
     el: document.getElementById("colorpicker"),
@@ -22,6 +24,7 @@ waff.qq(".color-block").forEach(function (el) {
     });
 });
 
+//Utils
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -32,6 +35,7 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+//Color changer
 function login_to_messenger() {
     messenger({
         email: getParameterByName("username"),
