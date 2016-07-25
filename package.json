@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/artur9010/electron-colorchanger.git"
+    "url": "git+https://github.com/artur9010/Phoenix.git"
   },
   "authors": [
     "artur9010 <admin@artur9010.pl>",
@@ -16,9 +16,9 @@
   ],
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/artur9010/electron-colorchanger/issues"
+    "url": "https://github.com/artur9010/Phoenix/issues"
   },
-  "homepage": "https://github.com/artur9010/electron-colorchanger#readme",
+  "homepage": "https://github.com/artur9010/Phoenix#readme",
   "dependencies": {
     "electron-prebuilt": "^1.2.7",
     "facebook-chat-api": "^1.1.0",
