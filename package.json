@@ -10,7 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/artur9010/electron-colorchanger.git"
   },
-  "author": "artur9010",
+  "authors": [
+    "artur9010 <admin@artur9010.pl>",
+    "wvffle <casper@wvffle.net>"
+  ],
   "license": "WTFPL",
   "bugs": {
     "url": "https://github.com/artur9010/electron-colorchanger/issues"
