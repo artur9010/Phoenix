@@ -89,15 +89,15 @@ function login_to_messenger() {
                 conversationDOMname.html("<strong>" + name + "</strong>");
                 conversationDOM.append(conversationDOMimage);
                 conversationDOM.append(conversationDOMname);
-                conversationDOM.on("click", function(e){
+                conversationDOM.on("click", function(){
                     waff.qq('.conversation.active').forEach((e)=>e.classList.remove('active'));
                     this.classList.add('active');
-                })
+                });
                 waff.q("#conversations").append(conversationDOM);
             }
         }
 
-        waff.q("#change-button").on("click", function(e){
+        waff.q("#change-button").on("click", function(){
             changeColor();
         });
 
