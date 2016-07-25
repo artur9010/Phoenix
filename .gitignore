@@ -1,6 +1,7 @@
 #electron
 Phoenix-*
-dist/
+dist
+.idea
 
 # Logs
 logs
