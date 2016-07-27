@@ -41,10 +41,11 @@ function login_to_messenger() {
             return console.error(err);
         }
 
-        // Display color changer
+        // Display color changer and hide login screen
         waff.q("#login-screen").css("display", "none");
         waff.q("#colorchanger").css("display", "");
 
+        // Load thread list from facebook shitty servers
         api.getThreadList(0, 50, function (err, arr) {
             if(err){
                 return console.error(err);
@@ -76,9 +77,9 @@ function login_to_messenger() {
         });
 
         function addConversation(id, name, image){
-            if(name !== ""){
-                if(image == "" || typeof image == undefined){
-                    image = "img/default.jpg"; //todo: not working?
+            if(name !== ""){ //do not display pages and unnamed conversations
+                if(image == "" || typeof image == undefined || image == null){
+                    image = "img/default.jpg";
                 }
                 var conversationDOM = waff.e("li.list-group-item.conversation#" + id);
                 var conversationDOMimage = waff.e("img.img-circle.media-object.pull-left");
