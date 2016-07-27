@@ -47,6 +47,7 @@ function login_to_messenger() {
         password: waff.q("#password").value
     }, function callback(err, api) {
         if (err) {
+            waff.q("#error").html(err.error);
             return console.error(err);
         }
 
