@@ -1,4 +1,4 @@
-.login-screen{
+#login-screen{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,10 +6,10 @@
     height: 100vh;
 }
 
-h1{
+#login-screen h1{
     color: rgb(255, 127, 0);
 }
 
-.grey-text{
+#login-screen .grey-text{
     color: lightgrey;
 }

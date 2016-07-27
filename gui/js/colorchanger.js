@@ -35,15 +35,24 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+waff.q("#login-form").on("submit", function(e){
+    e.preventDefault();
+    login_to_messenger();
+});
+
 //Color changer
 function login_to_messenger() {
     messenger({
-        email: getParameterByName("username"),
-        password: getParameterByName("password")
+        email: waff.q("#username").value,
+        password: waff.q("#password").value
     }, function callback(err, api) {
         if (err) {
             return console.error(err);
         }
+
+        // Display color changer
+        waff.q("#login-screen").css("display", "none");
+        waff.q("#colorchanger").css("display", "");
 
         api.getThreadList(0, 50, function (err, arr) {
             if(err){
