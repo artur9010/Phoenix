@@ -24,6 +24,11 @@ waff.qq(".color-block").forEach(function (el) {
     });
 });
 
+//Utils
+function sendNotification(body) {
+    new Notification("Phoenix", {body: body})
+}
+
 //Form
 waff.q("#login-form").on("submit", function (e) {
     e.preventDefault();
@@ -109,7 +114,11 @@ function login_to_messenger() {
         function changeColor() {
             var id = waff.q(".conversation.active").id;
             api.changeThreadColor(colorpicker.getHexString().toString(), id.toString(), function callback(err) {
-                if (err) return console.error(err);
+                if (err){
+                    sendNotification("Error changing color...");
+                    return console.error(err);
+                }
+                sendNotification("Color changed successfully :D");
             });
         }
     })
