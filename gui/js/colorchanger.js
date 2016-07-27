@@ -3,7 +3,7 @@
  */
 
 //node.js imports
-const waff = require("waff-query");
+const waff = require("waff-query/dist/waff-query.min.js");
 const messenger = require("facebook-chat-api");
 const ColorPicker = require("simple-color-picker");
 
@@ -17,7 +17,7 @@ var colorpicker = new ColorPicker({
 });
 
 waff.qq(".color-block").forEach(function (el) {
-    el.on("click", function(e){
+    el.on("click", function (e) {
         console.log(this.css("background-color"));
         console.log(this);
         colorpicker.setColor(this.css("background-color"));
@@ -25,7 +25,7 @@ waff.qq(".color-block").forEach(function (el) {
 });
 
 //Form
-waff.q("#login-form").on("submit", function(e){
+waff.q("#login-form").on("submit", function (e) {
     e.preventDefault();
     login_to_messenger();
 });
@@ -47,38 +47,35 @@ function login_to_messenger() {
 
         // Load thread list from facebook shitty servers
         api.getThreadList(0, 50, function (err, arr) {
-            if(err){
+            if (err) {
                 return console.error(err);
             }
-            for(prot in arr){
-                (function(){
-                    var conversationName;
-                    var conversationImage;
-                    var conversatonID;
-                    if(arr[prot]["isCanonicalUser"]){ //is user
-                        api.getUserInfo([arr[prot]["participantIDs"][0]], function(err, res){
-                            if(err) return console.error(err);
-                            for(var prop in res) {
-                                conversationName = res[prop].name;
-                                conversationImage = res[prop].thumbSrc;
-                                conversatonID = prop;
-                                addConversation(conversatonID, conversationName, conversationImage);
-                            }
-                        });
-                    }else{ //is group
-                        conversationName = arr[prot]["name"];
-                        conversationImage = arr[prot]["imageSrc"];
-                        conversatonID = arr[prot]["threadID"];
-                        addConversation(conversatonID, conversationName, conversationImage);
-                    }
-                }());
-
+            for (prot in arr) {
+                var conversationName;
+                var conversationImage;
+                var conversatonID;
+                if (arr[prot]["isCanonicalUser"]) { //is user
+                    api.getUserInfo([arr[prot]["participantIDs"][0]], function (err, res) {
+                        if (err) return console.error(err);
+                        for (var prop in res) {
+                            conversationName = res[prop].name;
+                            conversationImage = res[prop].thumbSrc;
+                            conversatonID = prop;
+                            addConversation(conversatonID, conversationName, conversationImage);
+                        }
+                    });
+                } else { //is group
+                    conversationName = arr[prot]["name"];
+                    conversationImage = arr[prot]["imageSrc"];
+                    conversatonID = arr[prot]["threadID"];
+                    addConversation(conversatonID, conversationName, conversationImage);
+                }
             }
         });
 
-        function addConversation(id, name, image){
-            if(name !== ""){ //do not display pages and unnamed conversations
-                if(image == "" || typeof image == undefined || image == null){
+        function addConversation(id, name, image) {
+            if (name !== "") { //do not display pages and unnamed conversations
+                if (image == "" || typeof image == undefined || image == null) {
                     image = "img/default.jpg";
                 }
                 var conversationDOM = waff.e("li.list-group-item.conversation#" + id);
@@ -90,7 +87,7 @@ function login_to_messenger() {
                 conversationDOMname.html("<strong>" + name + "</strong>");
                 conversationDOM.append(conversationDOMimage);
                 conversationDOM.append(conversationDOMname);
-                conversationDOM.on("click", function(){
+                conversationDOM.on("click", function () {
                     waff.qq('.conversation.active').forEach((e)=>e.classList.remove('active'));
                     this.classList.add('active');
                 });
@@ -98,14 +95,14 @@ function login_to_messenger() {
             }
         }
 
-        waff.q("#change-button").on("click", function(){
+        waff.q("#change-button").on("click", function () {
             changeColor();
         });
 
-        function changeColor(){
+        function changeColor() {
             var id = waff.q(".conversation.active").id;
-            api.changeThreadColor(colorpicker.getHexString().toString(), id.toString(), function callback(err){
-                if(err) return console.error(err);
+            api.changeThreadColor(colorpicker.getHexString().toString(), id.toString(), function callback(err) {
+                if (err) return console.error(err);
             });
         }
     })
