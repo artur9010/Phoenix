@@ -36,18 +36,19 @@ function login_to_messenger() {
         email: waff.q("#username").value,
         password: waff.q("#password").value
     }, function callback(err, api) {
+        waff.q("#info").html("Logging in...");
+
         if (err) {
-            waff.q("#error").html(err.error);
+            waff.q("#info").html(err.error);
             return console.error(err);
         }
 
-        // Display color changer and hide login screen
-        waff.q("#login-screen").css("display", "none");
-        waff.q("#colorchanger").css("display", "");
+        waff.q("#info").html("Logged in successfully, loading thread list.");
 
         // Load thread list from facebook shitty servers
         api.getThreadList(0, 50, function (err, arr) {
             if (err) {
+                waff.q("#info").html("Error loading thread list...");
                 return console.error(err);
             }
             for (prot in arr) {
@@ -72,6 +73,12 @@ function login_to_messenger() {
                 }
             }
         });
+
+        waff.q("#info").html("Good...");
+
+        // Hide login screen and show color changer.
+        waff.q("#login-screen").css("display", "none");
+        waff.q("#colorchanger").css("display", "");
 
         function addConversation(id, name, image) {
             if (name !== "") { //do not display pages and unnamed conversations
