@@ -23,6 +23,7 @@
     "electron-prebuilt": "^1.2.7",
     "facebook-chat-api": "^1.1.0",
     "simple-color-picker": "^0.1.0",
+    "stylus": "^0.54.5",
     "waff-query": "^0.5.3"
   },
   "devDependencies": {

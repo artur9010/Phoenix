@@ -6,8 +6,20 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/photon.min.css">
     <link rel="stylesheet" href="../node_modules/simple-color-picker/simple-color-picker.css">
-    <link rel="stylesheet" href="css/colorchanger.css">
-    <link rel="stylesheet" href="css/login.css">
+    <script>
+        var stylus = require('stylus');
+        var str = require('fs').readFileSync(__dirname + '/css/colorchanger.styl', 'utf8');
+
+        stylus(str)
+                .set('filename', __dirname + '/css/colorchanger.styl', 'utf8')
+                .render(function(err, css){
+                    if (err) throw err;
+                    var style = document.createElement('style');
+                    style.innerText = css;
+                    style.type = 'text/css';
+                    document.head.appendChild(style)
+                })
+    </script>
 </head>
 <body>
 
@@ -15,7 +27,8 @@
 <div class="window" id="login-screen">
     <img src="img/facebook-messenger.svg" width="150px" height="150px">
     <h1>Phoenix</h1>
-    <div id="info"></div><br/>
+    <div id="info"></div>
+    <br/>
     <form id="login-form">
         <div class="form-group">
             <label for="username">Facebook login or phone number</label>
@@ -40,30 +53,29 @@
                 <ul class="list-group" id="conversations"></ul>
             </div>
 
-            <div class="pane">
+            <div class="pane colorpicker">
                 <div id="colorpicker"></div>
-                <!-- todo: hidden, currently not working
                 <div class="predefined-colors">
-                    <div class="color-block color-1"></div>
-                    <div class="color-block color-2"></div>
-                    <div class="color-block color-3"></div>
-                    <div class="color-block color-4"></div>
-                    <div class="color-block color-5"></div>
+                    <div class="color-block" style="background-color: #0084FF;"></div>
+                    <div class="color-block" style="background-color: #44BEC7;"></div>
+                    <div class="color-block" style="background-color: #FFC300;"></div>
+                    <div class="color-block" style="background-color: #FA3C4C;"></div>
+                    <div class="color-block" style="background-color: #D696BB;"></div>
                 </div>
                 <div class="predefined-colors">
-                    <div class="color-block color-6"></div>
-                    <div class="color-block color-7"></div>
-                    <div class="color-block color-8"></div>
-                    <div class="color-block color-9"></div>
-                    <div class="color-block color-10"></div>
+                    <div class="color-block" style="background-color: #6699CC;"></div>
+                    <div class="color-block" style="background-color: #13CF13;"></div>
+                    <div class="color-block" style="background-color: #FF7E29;"></div>
+                    <div class="color-block" style="background-color: #E68585;"></div>
+                    <div class="color-block" style="background-color: #7646FF;"></div>
                 </div>
                 <div class="predefined-colors">
-                    <div class="color-block color-11"></div>
-                    <div class="color-block color-12"></div>
-                    <div class="color-block color-13"></div>
-                    <div class="color-block color-14"></div>
-                    <div class="color-block color-15"></div>
-                </div>-->
+                    <div class="color-block" style="background-color: #20CEF5;"></div>
+                    <div class="color-block" style="background-color: #67B868;"></div>
+                    <div class="color-block" style="background-color: #D4A88C;"></div>
+                    <div class="color-block" style="background-color: #FF5CA1;"></div>
+                    <div class="color-block" style="background-color: #A695C7;"></div>
+                </div>
                 <div class="buttons">
                     <button class="btn btn-large btn-warning" id="change-button">Change color</button>
                 </div>
