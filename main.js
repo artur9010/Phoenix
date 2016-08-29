@@ -14,8 +14,8 @@ require('./interceptor');
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 470,
-    height: 600,
+    width: 500,
+    height: 630,
     resizable: false
   });
 
