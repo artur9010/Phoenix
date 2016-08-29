@@ -5,21 +5,8 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/photon.min.css">
+    <link rel="stylesheet" href="css/colorchanger.styl">
     <link rel="stylesheet" href="../node_modules/simple-color-picker/simple-color-picker.css">
-    <script>
-        var stylus = require('stylus');
-        var str = require('fs').readFileSync(__dirname + '/css/colorchanger.styl', 'utf8');
-
-        stylus(str)
-                .set('filename', __dirname + '/css/colorchanger.styl', 'utf8')
-                .render(function(err, css){
-                    if (err) throw err;
-                    var style = document.createElement('style');
-                    style.innerText = css;
-                    style.type = 'text/css';
-                    document.head.appendChild(style)
-                })
-    </script>
 </head>
 <body>
 
