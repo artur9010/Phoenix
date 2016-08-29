@@ -3,6 +3,9 @@ Phoenix-*
 dist
 .idea
 
+# OS X
+.DS_Store
+
 # Logs
 logs
 *.log
