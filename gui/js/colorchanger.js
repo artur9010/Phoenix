@@ -58,7 +58,7 @@ function login_to_messenger() {
         // Load thread list from facebook shitty servers
         api.getThreadList(0, 50, function (err, arr) {
             if (err) {
-                waff.q("#info").html("Error loading thread list...");
+                waff.q("#info").html("Error loading thread list.");
                 submitted = false;
                 console.error(err);
             } else {
@@ -92,7 +92,7 @@ function login_to_messenger() {
                 // Hide login screen and show color changer.
                 waff.q("#login-screen").css("display", "none");
                 waff.q("#colorchanger").css("display", "");
-            }, 200);
+            }, 500);
         });
 
         function addConversation(id, name, image) {
@@ -106,6 +106,10 @@ function login_to_messenger() {
                 conversationDOMimage.attr("height", 32);
                 conversationDOMimage.attr("src", image);
                 var conversationDOMname = waff.e(".media-body");
+                api.getThreadInfo(id, function(err,info){
+                  if(err) return console.error(err);
+                  conversationDOM.css({color: info.color});
+                })
                 conversationDOMname.html("<strong>" + name + "</strong>");
                 conversationDOM.append(conversationDOMimage);
                 conversationDOM.append(conversationDOMname);
@@ -128,6 +132,7 @@ function login_to_messenger() {
                     sendNotification("Error changing color...");
                     return console.error(err);
                 }
+                waff.q('.conversation.active .media-body').css({color: colorpicker.getHexString()})
                 sendNotification("Color changed successfully :D");
             });
         }
