@@ -30,63 +30,70 @@ function sendNotification(body) {
 }
 
 //Form
+var submitted = false;
 waff.q("#login-form").on("submit", function (e) {
     e.preventDefault();
-    login_to_messenger();
+    if(submitted === false) login_to_messenger();
 });
 
 //Color changer
 function login_to_messenger() {
+    submitted = true;
+    waff.q("#info").html("Logging in...");
+    waff.q("#login-button").disabled = true; //disable login button
     messenger({
         email: waff.q("#username").value,
         password: waff.q("#password").value
     }, function callback(err, api) {
-        waff.q("#info").html("Logging in...");
-        waff.q("#login-button").disabled = true; //disable login button
 
         if (err) {
+            submitted = false;
             waff.q("#info").html(err.error);
             waff.q("#login-button").disabled = false; //enable login button if error
             return console.error(err);
         }
 
+        waff.q("#info").html("Loading thread list...");
+
         // Load thread list from facebook shitty servers
         api.getThreadList(0, 50, function (err, arr) {
             if (err) {
                 waff.q("#info").html("Error loading thread list...");
-                return console.error(err);
+                submitted = false;
+                console.error(err);
+            } else {
+              for (prot in arr) {
+                  var conversationName;
+                  var conversationImage;
+                  var conversatonID;
+                  if (arr[prot]["isCanonicalUser"]) { //is user
+                      api.getUserInfo([arr[prot]["participantIDs"][0]], function (err, res) {
+                          if (err) return console.error(err);
+                          for (var prop in res) {
+                              conversationName = res[prop].name;
+                              conversationImage = res[prop].thumbSrc;
+                              conversatonID = prop;
+                              addConversation(conversatonID, conversationName, conversationImage);
+                          }
+                      });
+                  } else { //is group
+                      conversationName = arr[prot]["name"];
+                      conversationImage = arr[prot]["imageSrc"];
+                      conversatonID = arr[prot]["threadID"];
+                      addConversation(conversatonID, conversationName, conversationImage);
+                  }
+              }
             }
-            for (prot in arr) {
-                var conversationName;
-                var conversationImage;
-                var conversatonID;
-                if (arr[prot]["isCanonicalUser"]) { //is user
-                    api.getUserInfo([arr[prot]["participantIDs"][0]], function (err, res) {
-                        if (err) return console.error(err);
-                        for (var prop in res) {
-                            conversationName = res[prop].name;
-                            conversationImage = res[prop].thumbSrc;
-                            conversatonID = prop;
-                            addConversation(conversatonID, conversationName, conversationImage);
-                        }
-                    });
-                } else { //is group
-                    conversationName = arr[prot]["name"];
-                    conversationImage = arr[prot]["imageSrc"];
-                    conversatonID = arr[prot]["threadID"];
-                    addConversation(conversatonID, conversationName, conversationImage);
-                }
-            }
+
+            waff.q("#info").html("Successfully logged in.");
+
+            // Set .5 second timeout
+            setTimeout(function(){
+                // Hide login screen and show color changer.
+                waff.q("#login-screen").css("display", "none");
+                waff.q("#colorchanger").css("display", "");
+            }, 200);
         });
-
-        waff.q("#info").html("Successfully logged in, loading thread list.");
-
-        // Set 1.5 second timeout
-        setTimeout(function(){
-            // Hide login screen and show color changer.
-            waff.q("#login-screen").css("display", "none");
-            waff.q("#colorchanger").css("display", "");
-        }, 1500);
 
         function addConversation(id, name, image) {
             if (name !== "") { //do not display pages and unnamed conversations
