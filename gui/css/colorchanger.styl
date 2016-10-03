@@ -1,4 +1,4 @@
-#login-screen
+.login-screen
   display flex
   justify-content center
   align-items center
@@ -8,27 +8,105 @@
     color rgb(255, 127, 0)
   .grey-text
     color lightgray
+  .logo
+    animation float 3s infinite
+  .info
+    min-height 20px
 
-#colorchanger
+.colorchanger
   .sidebar
-    .list-group-item.active, .list-group-item.selected
-      background-color rgb(219, 219, 219)
-      color rgb(65, 65, 66)
-  .colorpicker
+    .list-group-item
+      position relative
+      transition background-color .25s ease
+      &.active, &.selected
+        background-color rgba(#000, .1)
+        color rgb(65, 65, 66)
+      img
+        size 32px
+      .color
+        size 16px
+        border-radius 50%
+        position absolute
+        bottom 8px
+        box-shadow inset 4px -3px 0 0 rgba(#fff, .2)
+        left 28px
+        transition background-color .25s ease
+  .colorpicker-holder
+    .colorpicker
+      opacity 0
+      pointer-events none
+      transition opacity .25s ease, top .25s ease
+      position absolute
+      top 28vw
+      left 0
+      right 0
+      z-index 666
+      display flex
+      justify-content center
+      padding 17px
+      .Scp
+        padding 0 !important
+        width 174px !important
+        overflow hidden
+        border-radius 4px
+        box-shadow 0 2px 5px 0 rgba(#000, .16), 0 2px 10px 0 rgba(#000, .12)
+        &-hSelector
+          width 0px
+          height 0px
+          border-top 10px solid transparent
+          border-bottom 10px solid transparent
+          border-right 10px solid #fff
+          background transparent
+          margin-top -10px
+        &-saturation
+          margin-right 1px
+          width calc(100% - 21px)
+      &:hover
+        top 30vw
+        opacity 1
+        pointer-events all
+    .kot
+      size 30vw
+      border-radius 50%
+      box-shadow inset 27px -17px 0 0 rgba(#fff, .2)
+      transition background-color .25s ease
+      z-index 666
+      position absolute
+      top 0
+      left 0
+      right 0
+      bottom 60vh
+      margin auto
+      cursor pointer
+      &:hover ~ .colorpicker
+        top 30vw
+        opacity 1
+        pointer-events all
+
     .predefined-colors
+      margin-top 40vh
       display flex
       justify-content center
       padding-top 5px
+      flex-wrap wrap
       .color-block
         width 40px
         height 40px
         border-style solid
         border-color rgb(216, 216, 216)
         border-width 1px
-        border-radius 25px
-        margin-left 1px
-        margin-right 1px
+        border-radius 50%
+        box-shadow inset 7px -5px 0 0 rgba(#fff, .2)
+        margin 0 0 7px
+        &:not(:nth-child(5n))
+          margin 0 7px 7px 0
     .buttons
       display flex
       justify-content center
       padding-top 25px
+
+@keyframes float
+  0%, 100%
+    transform translateY(0)
+  65%
+    transform translateY(15px)

@@ -1,0 +1,23 @@
+{
+  "name": "Phoenix",
+  "description": "",
+  "main": "main.js",
+  "authors": [
+    "artur9010 <admin@artur9010.pl>",
+    "wvffle <casper@wvffle.net>"
+  ],
+  "license": "WTFPL",
+  "homepage": "https://github.com/wvffle/Phoenix",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "photon": "^0.1.2-alpha"
+  }
+}

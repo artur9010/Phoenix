@@ -3,6 +3,9 @@ Phoenix-*
 dist
 .idea
 
+# Bower
+bower_components
+
 # OS X
 .DS_Store
 
