@@ -4,72 +4,78 @@
     <title>Phoenix: Messenger Color Changer</title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/photon.min.css">
     <link rel="stylesheet" href="css/colorchanger.styl">
+    <link rel="stylesheet" href="../bower_components/photon/dist/css/photon.min.css">
     <link rel="stylesheet" href="../node_modules/simple-color-picker/simple-color-picker.css">
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="js/colorchanger.js"></script>
 </head>
-<body>
+<body ng-app='phoenix'>
 
 <!-- Login screen -->
-<div class="window" id="login-screen">
-    <img src="img/facebook-messenger.svg" width="150px" height="150px">
+<div class="window login-screen" ng-if="!api">
+    <img src="img/facebook-messenger.svg" class='logo' width="150px" height="150px">
     <h1>Phoenix</h1>
-    <div id="info"></div>
+    <div class="info"> {{ login_info }} </div>
     <br/>
-    <form id="login-form">
+    <form class="login-form">
         <div class="form-group">
             <label for="username">Facebook login or phone number</label>
-            <input type="text" id="username" class="form-control">
+            <input type="text" class="username form-control">
         </div>
         <div class="form-group">
             <label for="password">Facebook password</label>
-            <input type="password" id="password" class="form-control">
+            <input type="password" class="password form-control">
         </div>
-        <input type="submit" id="login-button" class="btn btn-large btn-warning" value="Continue">
+        <input type="submit" class="login-button btn btn-large btn-warning" value="Continue" ng-disabled='submitted'>
         <p class="grey-text">Use at your own risk, we are not responsible for the account lockout.</p>
         <p class="grey-text">We do not send your data to the NSA ;) (facebook does)</p>
     </form>
 </div>
 
 <!-- Color changer -->
-<div class="window" id="colorchanger" style="display: none;">
+<div class="window colorchanger" ng-if="!!api">
     <!-- Your app's content goes inside .window-content -->
     <div class="window-content">
         <div class="pane-group">
             <div class="pane pane-sm sidebar">
-                <ul class="list-group" id="conversations"></ul>
+                <ul class="list-group conversations">
+                  <li class="list-group-item conversation" ng-repeat='thread in contacts' id='{{ thread.id }}' ng-class='{active: active.id == thread.id}'>
+                    <img ng-src="{{thread.image}}" alt="" class='img-circle media-object pull-left'>
+                    <div class="color" ng-style='{ background: thread.color }'></div>
+                    <div class="media-body">
+                      <strong>{{ thread.name }}</strong>
+                    </div>
+                  </li>
+                </ul>
             </div>
 
-            <div class="pane colorpicker">
-                <div id="colorpicker"></div>
-                <div class="predefined-colors">
-                    <div class="color-block" style="background-color: #0084FF;"></div>
-                    <div class="color-block" style="background-color: #44BEC7;"></div>
-                    <div class="color-block" style="background-color: #FFC300;"></div>
-                    <div class="color-block" style="background-color: #FA3C4C;"></div>
-                    <div class="color-block" style="background-color: #D696BB;"></div>
-                </div>
-                <div class="predefined-colors">
-                    <div class="color-block" style="background-color: #6699CC;"></div>
-                    <div class="color-block" style="background-color: #13CF13;"></div>
-                    <div class="color-block" style="background-color: #FF7E29;"></div>
-                    <div class="color-block" style="background-color: #E68585;"></div>
-                    <div class="color-block" style="background-color: #7646FF;"></div>
-                </div>
-                <div class="predefined-colors">
-                    <div class="color-block" style="background-color: #20CEF5;"></div>
-                    <div class="color-block" style="background-color: #67B868;"></div>
-                    <div class="color-block" style="background-color: #D4A88C;"></div>
-                    <div class="color-block" style="background-color: #FF5CA1;"></div>
-                    <div class="color-block" style="background-color: #A695C7;"></div>
-                </div>
-                <div class="buttons">
-                    <button class="btn btn-large btn-warning" id="change-button">Change color</button>
-                </div>
+            <div class="pane colorpicker-holder">
+              <div class="kot" ng-style='{ background: (thread(active.id)||{}).newColor || (thread(active.id)||{}).color }'></div>
+              <div class="colorpicker"ng-if="!!active"></div>
+              <div class="predefined-colors">
+                <div class="color-block" style="background-color: #0084FF;"></div>
+                <div class="color-block" style="background-color: #44BEC7;"></div>
+                  <div class="color-block" style="background-color: #FFC300;"></div>
+                  <div class="color-block" style="background-color: #FA3C4C;"></div>
+                  <div class="color-block" style="background-color: #D696BB;"></div>
+                  <div class="color-block" style="background-color: #6699CC;"></div>
+                  <div class="color-block" style="background-color: #13CF13;"></div>
+                  <div class="color-block" style="background-color: #FF7E29;"></div>
+                  <div class="color-block" style="background-color: #E68585;"></div>
+                  <div class="color-block" style="background-color: #7646FF;"></div>
+                  <div class="color-block" style="background-color: #20CEF5;"></div>
+                  <div class="color-block" style="background-color: #67B868;"></div>
+                  <div class="color-block" style="background-color: #D4A88C;"></div>
+                  <div class="color-block" style="background-color: #FF5CA1;"></div>
+                  <div class="color-block" style="background-color: #A695C7;"></div>
+              </div>
+              <div class="buttons">
+                <button class="btn btn-large btn-warning change-button">Change color</button>
+              </div>
             </div>
         </div>
     </div>
 </div>
-<script src="js/colorchanger.js"></script>
 </body>
 </html>
