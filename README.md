@@ -4,8 +4,9 @@
 [![](https://img.shields.io/badge/Avaible%20for-OS%20X%2C%20Windows%2C%20Linux-blue.svg)](https://github.com/artur9010/Phoenix/releases)
 
 ## Screenshoots
-![Login screen](http://i.imgur.com/o6IR0y0.png)
-![After login screen?](http://i.imgur.com/GfDxwWP.png)
+![Login screen](http://i.imgur.com/svxQ9nM.png)
+![After login screen?](http://i.imgur.com/KT4HNIc.png)
+![After login screen 2?](http://i.imgur.com/PtTwz1B.png)
 
 ## Installing
 ### Windows
