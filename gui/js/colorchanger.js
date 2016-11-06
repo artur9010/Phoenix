@@ -131,7 +131,7 @@ Phoenix.directive('colorpicker', [
       restrict: 'C',
       link: function($scope, $el, $attr){
         var picker = $el[0];
-        $root.picker = new ColorPicker({
+        $root.picker = window.picker = new ColorPicker({
             color: '#FF0000',
             el: picker,
             height: 150,
