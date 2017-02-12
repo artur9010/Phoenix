@@ -32,11 +32,13 @@ npm run -s prod
 ```
 npm run -s build PLATFORM ARCH
 ```
+
 Here is the list of available platforms:
  - `mac` | `m` | `darwin`
  - `linux` | `l`
  - `windows` | `w` | `win32`
  - `all` | `a`
+
 And there is the list of architectures:
  - `x64`
  - `ia32`

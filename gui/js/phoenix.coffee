@@ -4,7 +4,7 @@ glob = require 'glob'
 path = require 'path'
 
 require 'coffee-script/register'
-global.debug = !~process.argv.indexOf('--debug');
+global.debug = !~process.argv.indexOf('--debug')
 
 # Angular
 global.Phoenix = angular.module 'phoenix', [ ]
