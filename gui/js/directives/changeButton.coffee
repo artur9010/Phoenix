@@ -3,7 +3,7 @@ Phoenix.directive 'changeButton', [
   'notify'
   ($root, $notify) ->
     restrict: 'C'
-    link: ($scope, $el,) ->
+    link: ($scope, $el) ->
       change = $el[0]
       change.on 'click', () ->
         id = $scope.active.id

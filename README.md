@@ -19,4 +19,26 @@ Download .zip package from [Releases](https://github.com/artur9010/Phoenix/relea
 #### OS X/macOS
 Download .zip package from [Releases](https://github.com/artur9010/Phoenix/releases/latest), extract it and run application (you can move it to Applications).
 
-##
+## Building
+### For testing
+```
+npm run -s build
+```
+### For production
+```
+npm run -s prod
+```
+### For specific platform
+```
+npm run -s build PLATFORM ARCH
+```
+Here is the list of available platforms:
+ - `mac` | `m` | `darwin`
+ - `linux` | `l`
+ - `windows` | `w` | `win32`
+ - `all` | `a`
+And there is the list of architectures:
+ - `x64`
+ - `ia32`
+ - `armv7l`
+ - `all` | `a`

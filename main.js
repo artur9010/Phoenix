@@ -17,7 +17,7 @@ function createWindow () {
 
   mainWindow.loadURL(`file://${__dirname}/gui/index.pug`);
 
-  debug && mainWindow.webContents.openDevTools();
+  !debug && mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', function () {
     mainWindow = null
