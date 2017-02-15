@@ -1,7 +1,8 @@
 Phoenix.directive 'changeButton', [
   '$rootScope'
   'notify'
-  ($root, $notify) ->
+  'history'
+  ($root, $notify, history) ->
     restrict: 'C'
     link: ($scope, $el) ->
       change = $el[0]
@@ -14,7 +15,9 @@ Phoenix.directive 'changeButton', [
             return console.error err
           debug && console.log id
           debug && console.log $root.thread id
-          $root.thread(id).color = $root.picker.getHexString()
+          color = $root.picker.getHexString()
+          $root.thread(id).color = color
+          history.push color
           $root.apply()
           $notify 'Color changed successfully :D'
 ]

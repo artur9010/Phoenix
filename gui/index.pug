@@ -46,4 +46,6 @@ html
             .buttons
               .color-block.small.randoooom
               button.btn.btn-large.btn-warning.change-button Change color
+          .pane.color-history
+            .color-block(ng-repeat="color in colorHistory track by $index" ng-style='{backgroundColor: color}')
 
