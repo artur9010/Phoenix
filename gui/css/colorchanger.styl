@@ -90,21 +90,28 @@
       padding-top 5px
       flex-wrap wrap
       max-width 47px * 5
-      .color-block
-        width 40px
-        height 40px
-        border-style solid
-        border-color rgb(216, 216, 216)
-        border-width 1px
-        border-radius 50%
-        box-shadow inset 7px -5px 0 0 rgba(#fff, .2)
-        margin 0 0 7px
-        &:not(:nth-child(5n))
-          margin 0 7px 7px 0
     .buttons
       display flex
       justify-content center
       padding-top 25px
+
+.color-block
+  width 40px
+  height 40px
+  border-style solid
+  border-color rgb(216, 216, 216)
+  border-width 1px
+  border-radius 50%
+  box-shadow inset 7px -5px 0 0 rgba(#fff, .2)
+  transition background-color .25s ease
+  margin 0 0 7px
+  cursor pointer
+  &:not(:nth-child(5n))
+    margin 0 7px 7px 0
+  &.small
+    size 30px
+    &:not(:nth-child(5n))
+      margin 0 7px 0 0
 
 @keyframes float
   0%, 100%

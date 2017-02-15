@@ -9,6 +9,8 @@ Phoenix.directive 'conversation', [
         $root.active = @
         $root.apply()
         process.nextTick ->
-          $root.picker.setColor conversation.q('.color').css 'background'
+          color = conversation.q('.color').css 'background'
+          $root.picker.setColor color
+          q('.color-block.randoooom').css background: color
           $root.apply()
 ]

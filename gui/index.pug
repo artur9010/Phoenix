@@ -9,6 +9,7 @@ html
     script(src='../bower_components/angular/angular.min.js')
     script(src='js/phoenix.coffee')
   body(ng-app='phoenix')
+
     // Login screen
     .window.login-screen(ng-if='!api')
       img.logo(src='img/facebook-messenger.svg', width='150px', height='150px')
@@ -25,6 +26,7 @@ html
         input.login-button.btn.btn-large.btn-warning(type='submit', value='Continue', ng-disabled='submitted')
         p.grey-text Use at your own risk, we are not responsible for the account lockout.
         p.grey-text We do not send your data to the NSA ;) (facebook does)
+
     // Color changer
     .window.colorchanger(ng-if='!!api')
       .window-content
@@ -42,5 +44,6 @@ html
             .predefined-colors
               .color-block(ng-repeat="color in predefinedColors" ng-style='{backgroundColor: color}')
             .buttons
+              .color-block.small.randoooom
               button.btn.btn-large.btn-warning.change-button Change color
 
