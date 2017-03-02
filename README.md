@@ -8,7 +8,7 @@ All binaries available in [Releases](https://github.com/artur9010/Phoenix/releas
 
 ## Screenshoots
 ![Screenshoot 1](https://i.imgur.com/QR8agTs.png)
-![Screenshoot 2](https://i.imgur.com/5JjqFEw.png)
+![Screenshoot 2](https://i.imgur.com/JgkAlpU.png)
 ![Screenshoot 3](https://i.imgur.com/VdOlk2n.png)
 
 ## Installing
