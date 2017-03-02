@@ -7,9 +7,9 @@
 All binaries available in [Releases](https://github.com/artur9010/Phoenix/releases/latest).
 
 ## Screenshoots
-![Login screen](http://i.imgur.com/svxQ9nM.png)
-![After login screen?](http://i.imgur.com/KT4HNIc.png)
-![After login screen 2?](http://i.imgur.com/PtTwz1B.png)
+![Screenshoot 1](https://i.imgur.com/QR8agTs.png)
+![Screenshoot 2](https://i.imgur.com/5JjqFEw.png)
+![Screenshoot 3](https://i.imgur.com/VdOlk2n.png)
 
 ## Installing
 #### Windows
