@@ -12,6 +12,7 @@ All binaries available in [Releases](https://github.com/artur9010/Phoenix/releas
 ![Screenshoot 1](https://i.imgur.com/QR8agTs.png)
 ![Screenshoot 2](https://i.imgur.com/JgkAlpU.png)
 ![Screenshoot 3](https://i.imgur.com/VdOlk2n.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fartur9010%2FPhoenix.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fartur9010%2FPhoenix?ref=badge_shield)
 
 ## Installing
 #### Windows
@@ -46,3 +47,7 @@ And there is the list of architectures:
  - `ia32`
  - `armv7l`
  - `all` | `a`
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fartur9010%2FPhoenix.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fartur9010%2FPhoenix?ref=badge_large)
